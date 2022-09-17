@@ -22,7 +22,7 @@ class BoxTest {
     }
 
     @Test
-    void NumberOfVerticesIsFour() {
+    void NumberIsFour() {
         Box box = new Box(4, 10);
         int numbers = box.getNumberOfVertices();
         assertThat(numbers)
@@ -31,7 +31,7 @@ class BoxTest {
     }
 
     @Test
-    void NumberOfVerticesIsZero() {
+    void NumberIsZero() {
         Box box = new Box(0, 5);
         int numbers = box.getNumberOfVertices();
         assertThat(numbers)
