@@ -1,6 +1,5 @@
 package ru.job4j.assertj;
 
-import jdk.internal.icu.text.NormalizerBase;
 import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.Test;
 
