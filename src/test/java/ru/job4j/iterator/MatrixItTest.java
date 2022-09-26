@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import java.util.NoSuchElementException;
 
-class MatrixItTest  {
+class MatrixItTest {
 
     @Test
     void when4El() {
@@ -92,6 +92,18 @@ class MatrixItTest  {
                 {}, {}, {}
         };
         MatrixIt it = new MatrixIt(in);
+        assertThat(it.hasNext()).isFalse();
+    }
+
+    @Test
+    void whenTwoEmpty() {
+        int[][] in = {
+                {5}, {2}, {}, {}, {5}
+        };
+        MatrixIt it = new MatrixIt(in);
+        assertThat(it.next()).isEqualTo(5);
+        assertThat(it.next()).isEqualTo(2);
+        assertThat(it.next()).isEqualTo(5);
         assertThat(it.hasNext()).isFalse();
     }
 }
