@@ -1,6 +1,6 @@
 package ru.job4j.generics;
 
-public class Store<T extends Base> {
+public interface Store<T extends Base> {
 
     void add(T model);
 
