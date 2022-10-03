@@ -14,5 +14,6 @@ public class ListUsage {
         while (iterator.hasNext()) {
             System.out.println("Текущий элемент, через iterator: " + iterator.next());
         }
+        System.out.println("Размер списка равен: " + rsl.size());
     }
 }
