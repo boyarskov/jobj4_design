@@ -13,8 +13,8 @@ public class MyArray<E> implements MyInterface<E> {
         strings.update(0, "update");
         strings.delete(1);
 
-        for (int i = 0; i < strings.size(); i++) {
-            System.out.println(strings.get(i));
+        for (String s : strings) {
+            System.out.println(s);
         }
     }
 
