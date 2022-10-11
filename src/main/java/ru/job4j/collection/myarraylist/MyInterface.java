@@ -1,4 +1,4 @@
-package ru.job4j.collection;
+package ru.job4j.collection.myarraylist;
 
 public interface MyInterface<E> extends Iterable<E> {
     boolean add(E e);

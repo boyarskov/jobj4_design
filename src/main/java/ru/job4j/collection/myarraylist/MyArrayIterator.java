@@ -1,4 +1,4 @@
-package ru.job4j.collection;
+package ru.job4j.collection.myarraylist;
 
 import java.util.Iterator;
 
