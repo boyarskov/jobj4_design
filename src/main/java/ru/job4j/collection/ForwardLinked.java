@@ -65,6 +65,10 @@ public class ForwardLinked<T> implements Iterable<T> {
         };
     }
 
+    public boolean isEmpty() {
+        return head == null;
+    }
+
     private static class Node<T> {
         T value;
         Node<T> next;
