@@ -23,7 +23,7 @@ public class User {
         Calendar hbUser = new GregorianCalendar(1980, 11, 21);
 
         User user1 = new User("Petr", 1, hbUser);
-        User user2 = new User("Artem", 0, hbUser);
+        User user2 = new User("Petr", 1, hbUser);
 
         maps.put(user1, hbUser);
         maps.put(user2, hbUser);
