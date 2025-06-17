@@ -28,23 +28,15 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
             expand();
             return true;
         }
-
         return true;
     }
 
     @Override
     public V get(K key) {
         int index = getIndexByKey(key);
-
         MapEntry<K, V> entry = table[index];
 
-        if (entry == null) {
-            return null;
-        }
-
-        int entryKeyHash = Objects.hashCode(entry.key);
-
-        if (index == entryKeyHash && Objects.equals(key, entry.key)) {
+        if (keysMatch(key, entry)) {
             return entry.value;
         }
         return null;
@@ -53,22 +45,14 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
     @Override
     public boolean remove(K key) {
         int index = getIndexByKey(key);
-
         MapEntry<K, V> entry = table[index];
 
-        if (entry == null) {
-            return false;
-        }
-
-        int entryKeyHash = Objects.hashCode(entry.key);
-
-        if (index == entryKeyHash && Objects.equals(key, entry.key)) {
+        if (keysMatch(key, entry)) {
             table[index] = null;
             modCount++;
             count--;
             return true;
         }
-
         return false;
     }
 
@@ -130,6 +114,17 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
         int keyHash = Objects.hashCode(key);
         int mod = hash(keyHash);
         return indexFor(mod);
+    }
+
+    private boolean keysMatch(K searchKey, MapEntry<K, V> entry) {
+        if (entry == null) {
+            return false;
+        }
+
+        int searchKeyHash = Objects.hashCode(searchKey);
+        int entryKeyHash = Objects.hashCode(entry.key);
+
+        return searchKeyHash == entryKeyHash && Objects.equals(searchKey, entry.key);
     }
 
     private static class MapEntry<K, V> {
